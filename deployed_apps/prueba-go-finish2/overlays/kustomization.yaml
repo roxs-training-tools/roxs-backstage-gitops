@@ -5,4 +5,4 @@ resources:
 images:
 - name: webgo
   newName: roxsross12/prueba-go-finish2
-  newTag: latest
+  newTag: b2359f9c
