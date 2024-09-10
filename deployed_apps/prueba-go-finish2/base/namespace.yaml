@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prueba-go-finish2
+  labels:
+    kubernetes.io/metadata.name: prueba-go-finish2
+    backstage.io/kubernetes-id: prueba-go-finish2
+    istio-injection: enabled
+spec:
+  finalizers:
+  - kubernetes
