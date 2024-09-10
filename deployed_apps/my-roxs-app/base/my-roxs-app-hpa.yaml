@@ -1,0 +1,17 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: my-roxs-app-hpa
+  namespace: my-roxs-app
+  labels:
+    app: my-roxs-app
+    version: 0.0.1
+    backstage.io/kubernetes-id: my-roxs-app
+spec:
+ scaleTargetRef:
+   apiVersion: apps/v1
+   kind: Deployment
+   name: my-roxs-app
+ minReplicas: 1
+ maxReplicas: 4
+ targetCPUUtilizationPercentage: 75
