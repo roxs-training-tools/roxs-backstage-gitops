@@ -20,12 +20,7 @@ spec:
       labels:
         app: prueba-go
         version: 0.0.1
-        backstage.io/kubernetes-id: prueba-go
-      annotations:
-        sidecar.istio.io/proxyCPU: "100m"
-        sidecar.istio.io/proxyMemory: "128Mi"
-        sidecar.istio.io/proxyCPULimit: "200m"
-        sidecar.istio.io/proxyMemoryLimit: "128Mi"        
+        backstage.io/kubernetes-id: prueba-go 
     spec:
       containers:
       - name: prueba-go
