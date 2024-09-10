@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prueba-aws-eks-service
+  namespace: prueba-aws-eks
+  labels:
+    app: prueba-aws-eks
+    version: 0.0.1
+    backstage.io/kubernetes-id: prueba-aws-eks
+spec:
+  type: ClusterIP
+  ports:
+  - name: tcp-node
+    port: 8080
+  selector:
+    app: prueba-aws-eks

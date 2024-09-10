@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prueba-aws-eks
+  namespace: prueba-aws-eks
+  labels:
+    app: prueba-aws-eks
+    version: 0.0.1
+    backstage.io/kubernetes-id: prueba-aws-eks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prueba-aws-eks
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: prueba-aws-eks
+        version: 0.0.1
+        backstage.io/kubernetes-id: prueba-aws-eks  
+    spec:
+      containers:
+      - name: prueba-aws-eks
+        image: webgo
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "64Mi"
+          limits:
+            cpu: "100m"
+            memory: "128Mi"
+        ports:
+        - name: http
+          containerPort: 8080
+        readinessProbe:
+          httpGet:
+            port: 8080
+            path: /health-check/readiness
+        livenessProbe:
+          httpGet:
+            port: 8080
+            path: /health-check/liveness
+          initialDelaySeconds: 3
+          periodSeconds: 15
