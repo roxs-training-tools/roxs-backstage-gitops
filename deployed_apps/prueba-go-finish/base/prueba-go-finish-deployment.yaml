@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prueba-go-finish
+  namespace: prueba-go-finish
+  labels:
+    app: prueba-go-finish
+    version: 0.0.1
+    backstage.io/kubernetes-id: prueba-go-finish
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prueba-go-finish
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: prueba-go-finish
+        version: 0.0.1
+        backstage.io/kubernetes-id: prueba-go-finish  
+    spec:
+      containers:
+      - name: prueba-go-finish
+        image: webgo
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "64Mi"
+          limits:
+            cpu: "100m"
+            memory: "128Mi"
+        ports:
+        - name: http
+          containerPort: 8080
+        readinessProbe:
+          httpGet:
+            port: 8080
+            path: /health-check/readiness
+        livenessProbe:
+          httpGet:
+            port: 8080
+            path: /health-check/liveness
+          initialDelaySeconds: 3
+          periodSeconds: 15
