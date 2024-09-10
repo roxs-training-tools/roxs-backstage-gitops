@@ -5,4 +5,4 @@ resources:
 images:
 - name: webgo
   newName: roxsross12/prueba-aws-eks
-  newTag: latest
+  newTag: fd6184d7
