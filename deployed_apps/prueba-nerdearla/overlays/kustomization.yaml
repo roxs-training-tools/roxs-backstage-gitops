@@ -5,4 +5,4 @@ resources:
 images:
 - name: webgo
   newName: roxsross12/prueba-nerdearla
-  newTag: latest
+  newTag: 1d33cfc3
