@@ -1,0 +1,17 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: prueba-go-finish2-hpa
+  namespace: prueba-go-finish2
+  labels:
+    app: prueba-go-finish2
+    version: 0.0.1
+    backstage.io/kubernetes-id: prueba-go-finish2
+spec:
+ scaleTargetRef:
+   apiVersion: apps/v1
+   kind: Deployment
+   name: prueba-go-finish2
+ minReplicas: 1
+ maxReplicas: 4
+ targetCPUUtilizationPercentage: 75
