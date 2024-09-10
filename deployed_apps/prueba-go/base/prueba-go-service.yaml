@@ -4,8 +4,6 @@ kind: Service
 metadata:
   name: prueba-go-service
   namespace: prueba-go
-  annotations:
-    external-dns.alpha.kubernetes.io/hostname: prueba-go.pauloponciano.digital
   labels:
     app: prueba-go
     version: 0.0.1
