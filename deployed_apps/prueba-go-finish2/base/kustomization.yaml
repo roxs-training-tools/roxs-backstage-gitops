@@ -1,9 +1,0 @@
----
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: prueba-go-finish2
-resources:
-  - namespace.yaml
-  - prueba-go-finish2-deployment.yaml
-  - prueba-go-finish2-service.yaml
-  - prueba-go-finish2-hpa.yaml
