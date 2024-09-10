@@ -1,0 +1,17 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: prueba-golang-hpa
+  namespace: prueba-golang
+  labels:
+    app: prueba-golang
+    version: 0.0.1
+    backstage.io/kubernetes-id: prueba-golang
+spec:
+ scaleTargetRef:
+   apiVersion: apps/v1
+   kind: Deployment
+   name: prueba-golang
+ minReplicas: 1
+ maxReplicas: 4
+ targetCPUUtilizationPercentage: 75
