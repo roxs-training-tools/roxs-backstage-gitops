@@ -1,0 +1,9 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: prueba-nerdearla
+resources:
+  - namespace.yaml
+  - prueba-nerdearla-deployment.yaml
+  - prueba-nerdearla-service.yaml
+  - prueba-nerdearla-hpa.yaml

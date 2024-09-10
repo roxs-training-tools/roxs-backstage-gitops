@@ -1,0 +1,17 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: prueba-nerdearla-hpa
+  namespace: prueba-nerdearla
+  labels:
+    app: prueba-nerdearla
+    version: 0.0.1
+    backstage.io/kubernetes-id: prueba-nerdearla
+spec:
+ scaleTargetRef:
+   apiVersion: apps/v1
+   kind: Deployment
+   name: prueba-nerdearla
+ minReplicas: 1
+ maxReplicas: 4
+ targetCPUUtilizationPercentage: 75

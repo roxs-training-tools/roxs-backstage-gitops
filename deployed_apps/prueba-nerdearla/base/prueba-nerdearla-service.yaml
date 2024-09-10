@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prueba-nerdearla-service
+  namespace: prueba-nerdearla
+  labels:
+    app: prueba-nerdearla
+    version: 0.0.1
+    backstage.io/kubernetes-id: prueba-nerdearla
+spec:
+  type: ClusterIP
+  ports:
+  - name: tcp-node
+    port: 8080
+  selector:
+    app: prueba-nerdearla
