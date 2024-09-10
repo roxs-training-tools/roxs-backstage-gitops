@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prueba-aws-eks
+  labels:
+    kubernetes.io/metadata.name: prueba-aws-eks
+    backstage.io/kubernetes-id: prueba-aws-eks
+    istio-injection: enabled
+spec:
+  finalizers:
+  - kubernetes
